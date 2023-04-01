@@ -344,7 +344,7 @@ DNS Domain:            samdom.example.com
 DOMAIN SID:            S-1-5-21-4151948209-2038588902-766361810
 ```
 
-## Rocky 8 - Samba configurations
+## RockyLinux 9 - Samba configurations
 * `/usr/local/samba/etc/smb.conf`
 
   ```bash
@@ -443,7 +443,7 @@ Reference [Samba Wiki - Managing_the_Samba_AD_DC_Service_Using_Systemd](https://
 
   ```bash
   # samba -i
-  samba version 4.12.3 started.
+  samba version 4.18.1 started.
   Copyright Andrew Tridgell and the Samba Team 1992-2020
   binary_smbd_main: samba: using 'prefork' process model
   ...
