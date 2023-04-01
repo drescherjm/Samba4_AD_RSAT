@@ -1,6 +1,6 @@
 Table of Contents
 =================
-- [Samba4 - Active Directory (CentOS 8)](#samba4---active-directory-centos-8)
+- [Samba4 - Active Directory (Rocky 8)](#samba4---active-directory-centos-8)
   - [Before Start](#before-start)
     - [Who You Are](#who-you-are)
     - [OS requirement](#os-requirement)
@@ -16,7 +16,7 @@ Table of Contents
   - [Setup](#setup)
     - [Provisioning Samba AD in Interactive Mode](#provisioning-samba-ad-in-interactive-mode)
     - [Provisioning Samba AD in Non-interactive Mode](#provisioning-samba-ad-in-non-interactive-mode)
-  - [CentOS 8 - Samba configurations](#centos-8---samba-configurations)
+  - [Rocky 8 - Samba configurations](#centos-8---samba-configurations)
     - [Managing the Samba AD DC Service Using Systemd](#managing-the-samba-ad-dc-service-using-systemd)
     - [Useful commands](#useful-commands)
   - [Manage Active Directory - DC with RSAT (Windows)](#manage-active-directory---dc-with-rsat-windows)
@@ -30,8 +30,8 @@ Table of Contents
   - [Other goodies](#other-goodies)
   - [Reference](#reference)
 
-# Samba4 - Active Directory (CentOS 8)
-[Samba4](https://wiki.samba.org/index.php/User_Documentation) with Active Directory (CentOS 8) - Domain Controllers (AD-DC)
+# Samba4 - Active Directory (Rocky 8)
+[Samba4](https://wiki.samba.org/index.php/User_Documentation) with Active Directory (Rocky 8) - Domain Controllers (AD-DC)
 
 > Windows Active Directory (Domain Controller) is just like [puppet](https://puppet.com/) in Microsoft world. Hope you enjoy it
 
@@ -63,8 +63,8 @@ DNS management via RSAT:<br/>
   * You can go on this document
 
 ### OS requirement
-* I'm using ***CentOS 8*** to build ***Samba4-AD-DC*** here
-* To avoid unpredictable exceptions, It might be a good choice to prepare your CentOS 8 through **[os_preparation](https://github.com/charlietag/os_preparation)**
+* I'm using ***Rocky 8*** to build ***Samba4-AD-DC*** here
+* To avoid unpredictable exceptions, It might be a good choice to prepare your Rocky 8 through **[os_preparation](https://github.com/charlietag/os_preparation)**
   * https://github.com/charlietag/os_preparation
 
 ## Installation
@@ -344,7 +344,7 @@ DNS Domain:            samdom.example.com
 DOMAIN SID:            S-1-5-21-4151948209-2038588902-766361810
 ```
 
-## CentOS 8 - Samba configurations
+## Rocky 8 - Samba configurations
 * `/usr/local/samba/etc/smb.conf`
 
   ```bash
@@ -649,7 +649,7 @@ Now your Samba is built, you can let **Windows RSAT** to deal with left configur
   ```
 
 ### Restore
-* Be sure to restore to a brand new AD-DC CentOS 8 server
+* Be sure to restore to a brand new AD-DC Rocky 8 server
 
   ```bash
   # samba-tool domain backup restore \
@@ -668,7 +668,7 @@ Now your Samba is built, you can let **Windows RSAT** to deal with left configur
     * [YouTube Video](https://www.youtube.com/watch?v=JRNCgvZs5v4) (Shared by **Chris Walker**)
   * `gpupdate /force`
 
-* AD-DC config screenshot (CentOS 8)
+* AD-DC config screenshot (Rocky 8)
 ![ad_DC_config](/screenshots/ad_DC_config.png)
 
 * Setting up logon script
