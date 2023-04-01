@@ -3,6 +3,8 @@
 # =====================
 # DATABAG_CFG:enable
 
+dnf install -y firewalld
+
 if [[ "${firewalld_enabled}" = "auto" ]]; then
   firewalld_enabled="$(systemctl is-enabled firewalld | grep -Eo "enable|disable" )" # return : enable / disable
 fi
