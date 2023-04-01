@@ -6,14 +6,23 @@ dnf install -y dnf-plugins-core epel-release
 # Enable repo PowerTools
 # ----------------------------------------------------------------------------------------
 # check repo
-local verify_repo="$(dnf repolist --enabled 2>&1  | grep 'PowerTools')"
+local verify_repo="$(dnf repolist --enabled 2>&1  | grep 'Devel')"
       verify_repo="$([[ -z "${verify_repo}" ]] && echo "FAILED")"
 
 if [[ "${verify_repo}" = "FAILED" ]]; then
-  dnf config-manager --set-enabled PowerTools
+  dnf config-manager --set-enabled Devel
 fi
 
 dnf upgrade -y
+
+
+dnf install -y \
+    nano \
+    bash-completion \
+    adcli \
+    e2fsprogs \
+    screen \
+    realmd
 
 dnf install -y \
     "@Development Tools" \
