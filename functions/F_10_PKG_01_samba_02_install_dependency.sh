@@ -3,14 +3,21 @@
 dnf install -y dnf-plugins-core epel-release
 
 # ----------------------------------------------------------------------------------------
-# Enable repo PowerTools
+# Enable repo Devel
 # ----------------------------------------------------------------------------------------
 # check repo
 local verify_repo="$(dnf repolist --enabled 2>&1  | grep 'Devel')"
       verify_repo="$([[ -z "${verify_repo}" ]] && echo "FAILED")"
 
 if [[ "${verify_repo}" = "FAILED" ]]; then
-  dnf config-manager --set-enabled Devel
+  dnf config-manager --set-enabled devel
+fi
+
+verify_repo="$(dnf repolist --enabled 2>&1  | grep 'CRB')"
+      verify_repo="$([[ -z "${verify_repo}" ]] && echo "FAILED")"
+
+if [[ "${verify_repo}" = "FAILED" ]]; then
+  dnf config-manager --set-enabled crb
 fi
 
 dnf upgrade -y
@@ -22,7 +29,8 @@ dnf install -y \
     adcli \
     e2fsprogs \
     screen \
-    realmd
+    realmd \
+    wget
 
 dnf install -y \
     "@Development Tools" \
