@@ -80,6 +80,7 @@ dnf install -y \
     perl-Test-Simple \
     perl-generators \
     perl-interpreter \
+    perl-JSON \
     pkgconfig \
     popt-devel \
     procps-ng \
@@ -105,4 +106,4 @@ dnf install -y \
     which \
     xfsprogs-devel \
     yum-utils \
-    zlib-devel
+    zlib-devel 
