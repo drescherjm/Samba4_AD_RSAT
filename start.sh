@@ -3,7 +3,7 @@
 #* Choose "Minimal Server" during the intstallation (works With Minimal ISO)
 #*****************************************************************************
 # --- Define github url for os_pre_lib
-OS_PRE_LIB_GITHUB="https://github.com/charlietag/os_preparation_lib.git"
+OS_PRE_LIB_GITHUB="https://github.com/drescherjm/os_preparation_lib.git"
 
 # --- Define filepath ---
 ## also in L_01_filepath.sh ##
