@@ -1,6 +1,6 @@
 Table of Contents
 =================
-- [Samba4 - Active Directory (Rocky 8)](#samba4---active-directory-centos-8)
+- [Samba4 - Active Directory (RockyLinux 9)](#samba4---active-directory-centos-8)
   - [Before Start](#before-start)
     - [Who You Are](#who-you-are)
     - [OS requirement](#os-requirement)
@@ -16,7 +16,7 @@ Table of Contents
   - [Setup](#setup)
     - [Provisioning Samba AD in Interactive Mode](#provisioning-samba-ad-in-interactive-mode)
     - [Provisioning Samba AD in Non-interactive Mode](#provisioning-samba-ad-in-non-interactive-mode)
-  - [Rocky 8 - Samba configurations](#centos-8---samba-configurations)
+  - [RockyLinux 9 - Samba configurations](#rockylinux-9---samba-configurations)
     - [Managing the Samba AD DC Service Using Systemd](#managing-the-samba-ad-dc-service-using-systemd)
     - [Useful commands](#useful-commands)
   - [Manage Active Directory - DC with RSAT (Windows)](#manage-active-directory---dc-with-rsat-windows)
@@ -30,8 +30,8 @@ Table of Contents
   - [Other goodies](#other-goodies)
   - [Reference](#reference)
 
-# Samba4 - Active Directory (Rocky 8)
-[Samba4](https://wiki.samba.org/index.php/User_Documentation) with Active Directory (Rocky 8) - Domain Controllers (AD-DC)
+# Samba4 - Active Directory (RockyLinux 9)
+[Samba4](https://wiki.samba.org/index.php/User_Documentation) with Active Directory (RockyLinux 9) - Domain Controllers (AD-DC)
 
 > Windows Active Directory (Domain Controller) is just like [puppet](https://puppet.com/) in Microsoft world. Hope you enjoy it
 
@@ -344,7 +344,7 @@ DNS Domain:            samdom.example.com
 DOMAIN SID:            S-1-5-21-4151948209-2038588902-766361810
 ```
 
-## Rocky 8 - Samba configurations
+## RockyLinux 9 - Samba configurations
 * `/usr/local/samba/etc/smb.conf`
 
   ```bash
@@ -443,7 +443,7 @@ Reference [Samba Wiki - Managing_the_Samba_AD_DC_Service_Using_Systemd](https://
 
   ```bash
   # samba -i
-  samba version 4.12.3 started.
+  samba version 4.18.1 started.
   Copyright Andrew Tridgell and the Samba Team 1992-2020
   binary_smbd_main: samba: using 'prefork' process model
   ...
