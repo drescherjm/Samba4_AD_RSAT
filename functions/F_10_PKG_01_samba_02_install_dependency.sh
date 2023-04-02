@@ -27,6 +27,7 @@ dnf install -y \
     nano \
     bash-completion \
     adcli \
+    krb5-workstation \
     e2fsprogs \
     screen \
     realmd \
