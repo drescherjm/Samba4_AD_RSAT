@@ -14,3 +14,10 @@ local samba_dns_forwarder="8.8.8.8"
 # --- Enable ---
 # Specify folder path to enable shared folder
 local samba_share_folder="/opt/samba/shared"
+
+
+# Winbindd support
+
+# --- Enable ---
+local samba_enable_winbind="Yes"
+
