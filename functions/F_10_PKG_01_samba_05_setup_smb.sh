@@ -15,13 +15,13 @@ if [[ -n "${samba_config_file}" ]]; then
   sed -re '/dns\s+forwarder/d' -i ${samba_config_file}
   sed -e "/^\[global\]/a \ \ dns forwarder = ${samba_dns_forwarder}" -i  ${samba_config_file}
 
+  # Remove any include statements 
+  sed -re '/include/d' -i ${samba_config_file}
+
   # ----------- Shared Folder ------------
   if [[ -n "${samba_share_folder}" ]]; then
 
-    sed -re '/include/d' -i ${samba_config_file}
     echo "include=/usr/local/samba/etc/shared.conf" >> ${samba_config_file}
-    task_copy_using_render_sed
-
 
     if [[ ! -d "${samba_share_folder}" ]]; then
       mkdir -p ${samba_share_folder}
@@ -40,10 +40,12 @@ if [[ -n "${samba_config_file}" ]]; then
 
   if [[ "${samba_enable_winbind}" = "Yes" ]]; then
      if [[ "$(uname -m)" = "x86_64" ]]; then
+       rm -f /lib64/libnss_winbind.so
        ln -s /usr/local/samba/lib/libnss_winbind.so.2 /lib64/
        ln -s /lib64/libnss_winbind.so.2 /lib64/libnss_winbind.so
        ldconfig
      else
+       rm -f /lib/libnss_winbind.so 
        ln -s /usr/local/samba/lib/libnss_winbind.so.2 /lib/
        ln -s /lib/libnss_winbind.so.2 /lib/libnss_winbind.so
        ldconfig
@@ -53,21 +55,19 @@ if [[ -n "${samba_config_file}" ]]; then
 
      systemctl enable --now oddjobd.service
 
-     echo "--------------------------------------------"
-     echo " getent passwd                              "
-     echo "--------------------------------------------"
-
-     getent passwd
-
-     echo "--------------------------------------------"
-     echo " getent group                               "
-     echo "--------------------------------------------"
-
-     getent group
+     echo "include=/usr/local/samba/etc/smb-winbind.conf" >> ${samba_config_file}
 
   fi
   $orig_nocasematch	  
 
   # ---------- Winbindd Support ----------
+
+
+  echo "include=/usr/local/samba/etc/smb-kerberos.conf" >> ${samba_config_file}
+
+
+  # Copy the conf files that are included from the templates folder  
+  task_copy_using_render_sed
+
 
 fi

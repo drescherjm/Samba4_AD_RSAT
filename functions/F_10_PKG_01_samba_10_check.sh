@@ -57,6 +57,18 @@ echo ""
 
 
 echo "--------------------------------------------"
+echo " getent passwd                              "
+echo "--------------------------------------------"
+
+getent passwd
+
+echo "--------------------------------------------"
+echo " getent group                               "
+echo "--------------------------------------------"
+
+getent group
+
+echo "--------------------------------------------"
 echo "You could now manage AD via RSAT"
 echo "https://github.com/charlietag/Samba4_AD_RSAT#manage-active-directory---dc-with-rsat-windows"
 echo "--------------------------------------------"
