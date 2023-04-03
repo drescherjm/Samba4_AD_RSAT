@@ -31,7 +31,9 @@ dnf install -y \
     e2fsprogs \
     screen \
     realmd \
-    wget
+    wget \
+    net-tools \
+    oddjob-mkhomedir
 
 dnf install -y \
     "@Development Tools" \
