@@ -10,7 +10,6 @@
 # --------------Load .bash_profile-------------
 
 
-
 local samba_config_file="$(smbd -b | grep "CONFIGFILE" | awk '{print $2}')"
 if [[ -n "${samba_config_file}" ]]; then
   sed -re '/dns\s+forwarder/d' -i ${samba_config_file}
@@ -34,4 +33,41 @@ if [[ -n "${samba_config_file}" ]]; then
     
   fi
   # ----------- Shared Folder ------------
+
+  # ---------- Winbindd Support ----------
+  local orig_nocasematch=$(shopt -p nocasematch; true)
+  shopt -s nocasematch
+
+  if [[ "${samba_enable_winbind}" = "Yes" ]]; then
+     if [[ "$(uname -m)" = "x86_64" ]]; then
+       ln -s /usr/local/samba/lib/libnss_winbind.so.2 /lib64/
+       ln -s /lib64/libnss_winbind.so.2 /lib64/libnss_winbind.so
+       ldconfig
+     else
+       ln -s /usr/local/samba/lib/libnss_winbind.so.2 /lib/
+       ln -s /lib/libnss_winbind.so.2 /lib/libnss_winbind.so
+       ldconfig
+     fi
+     # Set the system to use winbindd 
+     authselect select winbind with-mkhomedir --force
+
+     systemctl enable --now oddjobd.service
+
+     echo "--------------------------------------------"
+     echo " getent passwd                              "
+     echo "--------------------------------------------"
+
+     getent passwd
+
+     echo "--------------------------------------------"
+     echo " getent group                               "
+     echo "--------------------------------------------"
+
+     getent group
+
+  fi
+  $orig_nocasematch	  
+
+  # ---------- Winbindd Support ----------
+
 fi
