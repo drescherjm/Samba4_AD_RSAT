@@ -17,6 +17,15 @@ if [[ -n "${samba_config_file}" ]]; then
 
   # Remove any include statements 
   sed -re '/include/d' -i ${samba_config_file}
+  
+  # Start a new global section at the bottom of the file 
+  echo "[global]" >> ${samba_config_file}
+
+  # ------------- Samba Log --------------
+  mkdir /var/log/samba
+  echo "max log size = 10000" >> ${samba_config_file}
+  echo "log level = 3 kerberos:5@/var/log/samba/kerberos.log smb:3@/var/log/samba/%I.log smb2:3@/var/log/samba/%I.log" >> ${samba_config_file}
+  # ------------- Samba Log --------------
 
   # ----------- Shared Folder ------------
   if [[ -n "${samba_share_folder}" ]]; then
