@@ -1,14 +1,13 @@
+
 # =====================
 # Enable databag
 # =====================
 # DATABAG_CFG:enable
 
-
 # --------------Load .bash_profile-------------
 # Load .bash_profile to activate samba commands
 . ${PLUGINS}/plugin_load_bash_profile.sh
 # --------------Load .bash_profile-------------
-
 
 local samba_config_file="$(smbd -b | grep "CONFIGFILE" | awk '{print $2}')"
 if [[ -n "${samba_config_file}" ]]; then
@@ -26,22 +25,6 @@ if [[ -n "${samba_config_file}" ]]; then
   echo "max log size = 10000" >> ${samba_config_file}
   echo "log level = 3 kerberos:5@/var/log/samba/kerberos.log smb:3@/var/log/samba/%I.log smb2:3@/var/log/samba/%I.log" >> ${samba_config_file}
   # ------------- Samba Log --------------
-
-  # ----------- Shared Folder ------------
-  if [[ -n "${samba_share_folder}" ]]; then
-
-    echo "include=/usr/local/samba/etc/shared.conf" >> ${samba_config_file}
-
-    if [[ ! -d "${samba_share_folder}" ]]; then
-      mkdir -p ${samba_share_folder}
-    fi
-
-    if [[ -d "${samba_share_folder}" ]]; then
-      chmod -R 777 ${samba_share_folder}
-    fi
-    
-  fi
-  # ----------- Shared Folder ------------
 
   # ---------- Winbindd Support ----------
   local orig_nocasematch=$(shopt -p nocasematch; true)
@@ -74,9 +57,23 @@ if [[ -n "${samba_config_file}" ]]; then
 
   echo "include=/usr/local/samba/etc/smb-kerberos.conf" >> ${samba_config_file}
 
+  # ----------- Shared Folder ------------
+  if [[ -n "${samba_share_folder}" ]]; then
+
+    echo "include=/usr/local/samba/etc/shared.conf" >> ${samba_config_file}
+
+    if [[ ! -d "${samba_share_folder}" ]]; then
+      mkdir -p ${samba_share_folder}
+    fi
+
+    if [[ -d "${samba_share_folder}" ]]; then
+      chmod -R 777 ${samba_share_folder}
+    fi
+    
+  fi
+  # ----------- Shared Folder ------------
 
   # Copy the conf files that are included from the templates folder  
   task_copy_using_render_sed
-
 
 fi
