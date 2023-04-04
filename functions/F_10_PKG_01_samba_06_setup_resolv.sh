@@ -5,3 +5,6 @@
 
 \cp -a --backup=t /etc/resolv.conf /etc/resolv.conf.bak
 task_copy_using_render_sed
+
+chattr +i /etc/resolv.conf
+
