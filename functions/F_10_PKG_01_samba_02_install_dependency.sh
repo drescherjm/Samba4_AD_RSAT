@@ -112,6 +112,8 @@ dnf install -y \
     python3-libsemanage \
     python3-markdown \
     python3-policycoreutils \
+    python3-requests \ 
+    python3-cryptography \
     readline-devel \
     redhat-lsb \
     rng-tools \
