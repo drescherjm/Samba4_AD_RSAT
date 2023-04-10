@@ -33,7 +33,9 @@ dnf install -y \
     realmd \
     wget \
     net-tools \
-    oddjob-mkhomedir
+    oddjob-mkhomedir \
+    sssd \
+    sssd-tools
 
 dnf install -y \
     "@Development Tools" \
