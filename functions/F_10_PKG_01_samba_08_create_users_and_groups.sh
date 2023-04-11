@@ -8,7 +8,7 @@
 . ${PLUGINS}/plugin_load_bash_profile.sh
 # --------------Load .bash_profile-------------
 
-dnf install -Cy jq
+dnf install -y jq
 
 #echo ${group_data}
 
