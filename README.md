@@ -95,7 +95,7 @@ RedHat does not support AD as a DC (only as a ad member), so we build it from so
 
   ```bash
   databag/
-  ├── F_10_PKG_01_samba_00_prepare_01_hostname.cfg
+  ├── F_10_PKG_01_samba_01_prepare_01_hostname.cfg
   ├── F_10_PKG_01_samba_04_provision_ad.cfg
   ```
 
