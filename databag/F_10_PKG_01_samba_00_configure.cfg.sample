@@ -1,0 +1,2 @@
+local SAMBA_FIRST_DC=1  # 1 = First DC  0 = Additional DC
+ 
