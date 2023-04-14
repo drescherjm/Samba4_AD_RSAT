@@ -9,7 +9,7 @@
 . ${PLUGINS}/plugin_load_databag.sh F_10_PKG_01_samba_00_configure.cfg
 # --------------Load .bash_profile-------------
 
-if [[ "${SAMBA_FIRST_DC}" != "0" ]]; then
+if [[ "${samba_first_dc}" != "0" ]]; then
 	samba-tool domain provision --server-role=${samba_server_role} --use-rfc2307 --dns-backend=${samba_dns_backend} --realm=${samba_realm} --domain=${samba_domain} --adminpass=${samba_admin_password}
 fi
 
