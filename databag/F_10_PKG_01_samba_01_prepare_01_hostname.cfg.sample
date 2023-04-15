@@ -8,4 +8,4 @@
 
 # --------------------------------------------------------
 
-local host_name="${this_hostname_short}.${samba_adc_domain}"
+local host_name="${this_hostname_short}.${samba_realm}"
