@@ -1,15 +1,14 @@
 # ------------------------------------------------
 # Samba AD config
 # ------------------------------------------------
+
+# --------------------------------------------------------
+. ${PLUGINS}/plugin_load_databag.sh F_10_PKG_01_samba_00_configure.cfg
+# --------------------------------------------------------
+
+# Note: The F_10_PKG_01_samba_00_configure.cfg file sets sama_realm and samba_domain
+
 local samba_server_role="dc"
 local samba_dns_backend="SAMBA_INTERNAL"
-
-#Assume hostname here is dc1.SAMDOM.EXAMPLE.COM
-#local samba_realm="SAMDOM.EXAMPLE.COM"
-#local samba_domain="SAMDOM"
-
-local samba_realm="$(hostname | cut -d'.' -f2-)"
-local samba_domain="$(hostname | cut -d'.' -f2- | cut -d'.' -f1)"
-
 
 local samba_admin_password="Passw0rd"

@@ -1,2 +1,6 @@
 local samba_first_dc=1  # 1 = First DC  0 = Additional DC
- 
+local samba_realm=SAMDOM.EXAMPLE.COM
+local samba_domain=$(echo ${samba_realm} | cut -d'.' -f2-)
+local this_hostname_short=DC1
+local samba_existing_dc=""
+

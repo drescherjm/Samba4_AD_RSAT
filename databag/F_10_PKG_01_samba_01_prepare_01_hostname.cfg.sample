@@ -4,5 +4,8 @@
 #      "dc1.SAMDOM.EXAMPLE.COM"
 # --------------------------------------------------------
 
-#local host_name="$(hostname)"
-local host_name="dc1.$(hostname)"
+. ${PLUGINS}/plugin_load_databag.sh F_10_PKG_01_samba_00_configure.cfg
+
+# --------------------------------------------------------
+
+local host_name="${this_hostname_short}.${samba_adc_domain}"
