@@ -31,3 +31,13 @@ if [[ -f /etc/krb5.conf ]]; then
   \cp -a --backup=t /etc/krb5.conf /etc/krb5.conf.bak
   rm -f /etc/krb5.conf
 fi
+
+# Remove local DNS server from /etc/resolv.comf
+
+if [[ -f /etc/resolv.conf.bak ]]; then
+  chattr -i /etc/resolv.conf
+  \cp /etc/resolv.conf.bak /etc/resolv.conf
+fi
+
+
+
