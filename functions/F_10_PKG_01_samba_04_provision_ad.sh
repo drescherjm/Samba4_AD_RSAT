@@ -11,6 +11,8 @@
 
 if [[ "${samba_first_dc}" != "0" ]]; then
 	samba-tool domain provision --server-role=${samba_server_role} --use-rfc2307 --dns-backend=${samba_dns_backend} --realm=${samba_realm} --domain=${samba_domain} --adminpass=${samba_admin_password}
+else 
+	samba-tool domain join ${samba_realm} DC -U"${samba_domain}\administrator" --adminpass=${samba_admin_password} 
 fi
 
 # A Kerberos configuration suitable for Samba AD has been generated
