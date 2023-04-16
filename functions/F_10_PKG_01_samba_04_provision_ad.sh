@@ -37,8 +37,8 @@ if [[ "${samba_first_dc}" != "0" ]]; then
 else 
 	setup_smb_conf
 
-	echo "samba-tool domain join ${samba_realm} DC -UAdministrator -W${samba_domain} --password=${samba_admin_password} --server=samba_existing_dc"
-	samba-tool domain join ${samba_realm} DC -UAdministrator -W${samba_domain} --password=${samba_admin_password} --server=samba_existing_dc
+	echo "samba-tool domain join ${samba_realm} DC -UAdministrator -W${samba_domain} --password=${samba_admin_password} --server=${samba_existing_dc}"
+	samba-tool domain join ${samba_realm} DC -UAdministrator -W${samba_domain} --password=${samba_admin_password} --server=${samba_existing_dc}
 fi
 
 # A Kerberos configuration suitable for Samba AD has been generated

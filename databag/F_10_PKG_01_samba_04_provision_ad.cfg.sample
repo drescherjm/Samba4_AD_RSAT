@@ -11,4 +11,3 @@
 local samba_server_role="dc"
 local samba_dns_backend="SAMBA_INTERNAL"
 
-local samba_admin_password="Passw0rd"
