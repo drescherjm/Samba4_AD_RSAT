@@ -3,4 +3,6 @@ local samba_realm=SAMDOM.EXAMPLE.COM
 local samba_domain=$(echo ${samba_realm} | cut -d'.' -f1)
 local this_hostname_short=DC1
 local samba_existing_dc=""
+local samba_admin_password="Passw0rd"
+
 
