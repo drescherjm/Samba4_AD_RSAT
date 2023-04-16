@@ -1,5 +1,5 @@
 # ------------------------------------------------
 # DO NOT MODIFY HERE
 # ------------------------------------------------
-. ${PLUGINS}/plugin_load_databag.sh F_10_PKG_01_samba_04_provision_ad.cfg
+. ${PLUGINS}/plugin_load_databag.sh F_10_PKG_01_samba_04_setup_ad_DC.cfg
 
