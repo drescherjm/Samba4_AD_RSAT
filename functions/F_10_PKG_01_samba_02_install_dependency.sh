@@ -39,6 +39,7 @@ dnf install -y \
 
 dnf install -y \
     "@Development Tools" \
+    python3-setproctitle \
     acl \
     attr \
     autoconf \
