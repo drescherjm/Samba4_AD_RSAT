@@ -13,7 +13,13 @@ function  setup_smb_conf {
   cat << EOF > /usr/local/samba/etc/smb.conf.new
 [global]
    SERVER ROLE = ACTIVE DIRECTORY DOMAIN CONTROLLER
-  
+   netbios name = ${this_hostname_short}
+   realm = ${samba_realm}
+   workgroup = ${samba_domain}
+
+   idmap_ldb:use rfc2307 = yes
+   apply group policies = yes
+
 [sysvol]
       path = /usr/local/samba/var/locks/sysvol
       read only = No
