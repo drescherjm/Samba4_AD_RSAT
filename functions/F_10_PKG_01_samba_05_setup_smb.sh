@@ -35,11 +35,13 @@ if [[ -n "${samba_config_file}" ]]; then
        rm -f /lib64/libnss_winbind.so
        ln -s /usr/local/samba/lib/libnss_winbind.so.2 /lib64/
        ln -s /lib64/libnss_winbind.so.2 /lib64/libnss_winbind.so
+       ln -s /usr/local/samba/lib/security/pam_winbind.so /usr/lib64/security/pam_winbind.so
        ldconfig
      else
        rm -f /lib/libnss_winbind.so 
        ln -s /usr/local/samba/lib/libnss_winbind.so.2 /lib/
        ln -s /lib/libnss_winbind.so.2 /lib/libnss_winbind.so
+       ln -s /usr/local/samba/lib/security/pam_winbind.so /usr/lib/security/pam_winbind.so
        ldconfig
      fi
      # Set the system to use winbindd 
