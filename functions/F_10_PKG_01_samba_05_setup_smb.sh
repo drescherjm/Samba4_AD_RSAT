@@ -11,6 +11,8 @@
 
 local samba_config_file="$(smbd -b | grep "CONFIGFILE" | awk '{print $2}')"
 if [[ -n "${samba_config_file}" ]]; then
+  sed -e "/^\[global\]/a \ \ template shell = /bin/bash" -i  ${samba_config_file}
+
   sed -re '/dns\s+forwarder/d' -i ${samba_config_file}
   sed -e "/^\[global\]/a \ \ dns forwarder = ${samba_dns_forwarder}" -i  ${samba_config_file}
 
