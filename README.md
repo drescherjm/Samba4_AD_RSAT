@@ -130,6 +130,12 @@ RedHat does not support AD as a DC (only as a ad member), so we build it from so
   1. Join domain (Samba AD-DC)
   1. Start to manage your AD DC ([RSAT](#manage-active-directory---dc-with-rsat-windows))
 
+#### Step 4 - Updating Samba after a new release at samba.org
+  As long as you left your clone and data alone, you only need to re-execute the 1 samba build step and not the other steps:
+  ```bash
+  ./start.sh -i F_10_PKG_01_samba_03_install_from_source
+  ```
+
 ### Manually
 ---
 #### Prepare
