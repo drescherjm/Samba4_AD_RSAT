@@ -9,7 +9,7 @@ local smbd_command="$(command -v smbd)"
 
 # Remove default Samba to avoid conflicts
 echo "--- Remove default Samba package ---"
-rpm --quiet -q samba && dnf remove -y samba
+rpm --quiet -q samba && dnf remove -y samba samba-winbind samba-libs samba-ldb samba-dcerpc samba-common-tools samba-common samba-client
 
 # Make sure that no Samba processes are running
 echo "--- Stop samba daemon if exists ---"
