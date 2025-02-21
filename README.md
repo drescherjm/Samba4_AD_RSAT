@@ -81,7 +81,7 @@ RedHat does not support AD as a DC (only as a ad member), so we build it from so
   ```bash
   dnf clean all
   dnf install -y git
-  git clone https://github.com/charlietag/Samba4_AD_RSAT.git
+  git clone https://github.com/drescherjm/Samba4_AD_RSAT.git
   ```
 
 * Make sure config files exists , you can copy from sample to **modify**.
