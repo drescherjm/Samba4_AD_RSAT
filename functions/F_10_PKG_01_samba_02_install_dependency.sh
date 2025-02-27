@@ -131,5 +131,9 @@ dnf install -y \
     which \
     xfsprogs-devel \
     yum-utils \
-    zlib-devel
+    zlib-devel \
+    python3-markdown \
+    python3-dns \
+    python3-cryptography
+
 
